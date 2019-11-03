@@ -184,7 +184,7 @@ class Aria2cFD(ExternalFD):
     def _make_cmd(self, tmpfilename, info_dict):
         cmd = [self.exe, '-c']
         cmd += self._configuration_args([
-            '--min-split-size', '1M', '--max-connection-per-server', '4'])
+            '--min-split-size', '5M', '--max-connection-per-server', '10', '--split', '10'])
         dn = os.path.dirname(tmpfilename)
         if dn:
             cmd += ['--dir', dn]
