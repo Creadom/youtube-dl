@@ -215,6 +215,10 @@ class PornHubPremiumBaseIE(InfoExtractor):
         if 'Buy on video player' in webpage:
             self.raise_login_required('This is a paid video')
 
+        # Fan only video
+        if 'Fan Only Video' in webpage:
+            self.raise_login_required('This is a fan only video')
+
         # Check for other errors
         error_msg = self._html_search_regex(
             r'(?s)<div[^>]+class=(["\'])(?:(?!\1).)*\b(?:removed|userMessageSection)\b(?:(?!\1).)*\1[^>]*>(?P<error>.+?)</div>',
@@ -409,6 +413,10 @@ class PornHubPremiumIE(PornHubPremiumBaseIE):
         # Paid video
         if 'Buy on video player' in webpage:
             self.raise_login_required('This is a paid video')
+
+        # Fan only video
+        if 'Fan Only Video' in webpage:
+            self.raise_login_required('This is a fan only video')
 
         # Check for other errors
         error_msg = self._html_search_regex(
