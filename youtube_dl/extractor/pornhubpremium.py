@@ -472,12 +472,8 @@ class PornHubPremiumIE(PornHubPremiumBaseIE):
         # Todo: Abstract this section out into helpers.
         #
         if not video_urls:
-            self._set_cookie(host, 'platform', 'tv')
-            tv_webpage = self._download_webpage(
-                'https://%s/view_video.php?viewkey=%s' % (host, video_id), video_id)
-
             assignments = self._search_regex(
-                r'(var ra.+?var quality_\d\d\d\d?p=.+)', tv_webpage,
+                r'(var ra.+?var quality_\d\d\d\d?p=.+)', webpage,
                 'encoded url').split(';')
 
             js_vars = {}

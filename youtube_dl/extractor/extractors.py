@@ -867,7 +867,8 @@ from .pornhub import (
     PornHubPagedVideoListIE,
     PornHubUserVideosUploadIE,
 )
-from pornhubpremium import (
+
+from .pornhubpremium import (
     PornHubPremiumIE,
     PornHubUserPremiumIE,
     PornHubPagedVideoListPremiumIE,
